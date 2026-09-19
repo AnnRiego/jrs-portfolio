@@ -51,10 +51,10 @@ const tools = [
   "Canva",
   "Google Workspace",
   "Microsoft Office",
-  "Figma",
   "VS Code",
   "GitHub",
   "Vercel",
+  "Figma",
 ];
 
 /* =========================================================
@@ -62,38 +62,38 @@ const tools = [
 ========================================================= */
 
 const projects = [
+ 
   {
-    title: "IT Training Center Website",
-    category: "Web Design",
-    icon: "🖥️",
-    image: "/projects/it-training.png",
-    video: "/projects/video.mp4",
+    title: "Previous Job Projects",
+    category: "Previous Work",
+    icon: "📈",
+    image: ["/projects/Projects & Certificates.png"],
     description:
-      "A responsive frontend website concept for an IT Training Center. The project focuses on clean navigation, modern interface design, training information, and user-friendly layouts.",
-    technologies: ["Next.js", "JSX", "Tailwind CSS"],
-  },
+    "A collection of selected projects, certificates, and professional outputs showcasing my experience in system documentation, digital design, office productivity, and technical support.",
 
+    technologies: ["Canva", "Google Workspace", "Microsoft Office"],
+    link: "https://drive.google.com/drive/u/0/folders/1eYNUABFaHrY6aWQkXLq7tcGn4uGM_fax",
+  },
   {
     title: "Attendance & Payroll System",
     category: "System UI",
-    icon: "📊",
-    image: "/projects/attendance.png",
+    image: "/projects/eaps.png",
+    video: "/projects/attendance.mp4",
     description:
       "A web-based attendance and payroll system interface designed to organize employee attendance records, payroll information, reports, and system settings.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["AI", "Next.js", "JSX", "Tailwind CSS"],
+  },
+  {
+    title: "IT Training Center Website",
+    category: "Web Design",
+    image: "/projects/ittraining.png",
+    video: "/projects/video.mp4",
+    description:
+      "A responsive frontend website concept for an IT Training Center. The project focuses on clean navigation, modern interface design, training information, and user-friendly layouts.",
+    technologies: ["AI", "Next.js", "JSX", "Tailwind CSS"],
   },
 
-  {
-    title: "System Dashboard UI",
-    category: "Dashboard",
-    icon: "📈",
-    image: ["/projects/dash/dashboard1.png",
-            "/projects/dash/dashboard2.png",
-            "/projects/dash/dashboard3.png"],
-    description:
-      "A modern dashboard interface concept designed to present system information, statistics, summaries, and important records in an organized visual format.",
-    technologies: ["Next.js", "JSX", "Tailwind CSS"],
-  },
+ 
 
   {
     title: "User Manual Design",
@@ -742,6 +742,17 @@ export default function Home() {
                     )
                   )}
                 </div>
+                {selectedProject.link && (
+               <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#a70000] px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#8f0000] hover:shadow-lg"
+                >
+                View Previous Job Projects
+               <span>↗</span>
+               </a>
+                )}
               </div>
 
               {/* Close Preview Button */}
