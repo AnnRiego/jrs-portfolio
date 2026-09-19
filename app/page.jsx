@@ -62,17 +62,16 @@ const tools = [
 ========================================================= */
 
 const projects = [
- 
   {
     title: "Previous Job Projects",
     category: "Previous Work",
     image: ["/projects/Projects & Certificates.png"],
     description:
-    "A collection of selected projects, certificates, and professional outputs showcasing my experience in system documentation, digital design, office productivity, and technical support.",
-
+      "A collection of selected projects, certificates, and professional outputs showcasing my experience in system documentation, digital design, office productivity, and technical support.",
     technologies: ["Canva", "Google Workspace", "Microsoft Office"],
     link: "https://drive.google.com/drive/u/0/folders/1eYNUABFaHrY6aWQkXLq7tcGn4uGM_fax",
   },
+
   {
     title: "Attendance & Payroll System",
     category: "System UI",
@@ -82,6 +81,7 @@ const projects = [
       "A web-based attendance and payroll system interface designed to organize employee attendance records, payroll information, reports, and system settings.",
     technologies: ["AI", "Next.js", "JSX", "Tailwind CSS"],
   },
+
   {
     title: "IT Training Center Website",
     category: "Web Design",
@@ -91,8 +91,6 @@ const projects = [
       "A responsive frontend website concept for an IT Training Center. The project focuses on clean navigation, modern interface design, training information, and user-friendly layouts.",
     technologies: ["AI", "Next.js", "JSX", "Tailwind CSS"],
   },
-
- 
 
   {
     title: "User Manual Design",
@@ -115,11 +113,12 @@ export default function Home() {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [manualPage, setManualPage] = useState(0);
+  const [showResume, setShowResume] = useState(false);
 
   return (
     <>
-  {/* =====================================================
-        NAVBAR
+      {/* =====================================================
+          NAVBAR
       ===================================================== */}
 
       <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0b0f19]/90 backdrop-blur-lg">
@@ -298,8 +297,6 @@ export default function Home() {
                   System & Creative Support
                 </p>
               </div>
-
-            
             </div>
           </div>
         </div>
@@ -326,6 +323,15 @@ export default function Home() {
             basic web development skills and enjoy combining technology
             and design to create useful and easy-to-understand materials.
           </p>
+
+          {/* View Resume Button */}
+          <button
+            type="button"
+            onClick={() => setShowResume(true)}
+            className="mt-6 inline-flex items-center rounded-lg border border-purple-400/30 bg-purple-500/10 px-5 py-3 text-sm font-medium text-purple-300 transition-all duration-300 hover:border-purple-400/60 hover:bg-purple-500/20 hover:text-white hover:shadow-lg hover:shadow-purple-500/10"
+          >
+            View My Resume
+          </button>
         </div>
       </section>
 
@@ -450,7 +456,6 @@ export default function Home() {
 
                   {/* Preview Button */}
                   <button
-                  
                     onClick={() => {
                       setSelectedProject(project);
                       setManualPage(0);
@@ -510,13 +515,14 @@ export default function Home() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-          I’m Open to New Opportunities
+            I’m Open to New Opportunities
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl leading-7 text-gray-500">
-          I’m currently open to career opportunities where I can apply my experience in 
-          system support, documentation, QA, and digital solutions while 
-          continuing to develop my skills in technology and design.
+            I’m currently open to career opportunities where I can apply my
+            experience in system support, documentation, QA, and digital
+            solutions while continuing to develop my skills in technology
+            and design.
           </p>
 
           <a
@@ -622,89 +628,86 @@ export default function Home() {
             </button>
 
             {/* =================================================
-             VIDEO / IMAGE / USER MANUAL PREVIEW     
+                VIDEO / IMAGE / USER MANUAL PREVIEW
             ================================================= */}
 
-<div className="relative bg-[#0b0f19] p-4 sm:p-6">
+            <div className="relative bg-[#0b0f19] p-4 sm:p-6">
+              {selectedProject.video ? (
+                /* VIDEO PROJECT */
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="max-h-[500px] w-full rounded-2xl bg-black object-contain"
+                >
+                  <source
+                    src={selectedProject.video}
+                    type="video/mp4"
+                  />
 
-{selectedProject.video ? (
-  /* VIDEO PROJECT */
-  <video
-    controls
-    preload="metadata"
-    playsInline
-    className="max-h-[500px] w-full rounded-2xl bg-black object-contain"
-  >
-    <source
-      src={selectedProject.video}
-      type="video/mp4"
-    />
+                  Your browser does not support video playback.
+                </video>
+              ) : selectedProject.manualImages ? (
+                /* USER MANUAL SLIDESHOW */
+                <div>
+                  {/* Screenshot */}
+                  <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black">
+                    <img
+                      src={selectedProject.manualImages[manualPage]}
+                      alt={`${selectedProject.title} - Page ${
+                        manualPage + 1
+                      }`}
+                      className="max-h-[600px] w-full object-contain"
+                    />
+                  </div>
 
-    Your browser does not support video playback.
-  </video>
+                  {/* Navigation */}
+                  <div className="mt-5 flex items-center justify-between gap-4">
+                    {/* Previous */}
+                    <button
+                      onClick={() =>
+                        setManualPage((current) =>
+                          current === 0
+                            ? selectedProject.manualImages.length - 1
+                            : current - 1
+                        )
+                      }
+                      className="rounded-full border border-white/10 bg-[#111624] px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-purple-500 hover:text-white"
+                    >
+                      ← Previous
+                    </button>
 
-) : selectedProject.manualImages ? (
-  /* USER MANUAL SLIDESHOW */
-  <div>
+                    {/* Page Counter */}
+                    <span className="text-sm text-gray-400">
+                      Page {manualPage + 1} of{" "}
+                      {selectedProject.manualImages.length}
+                    </span>
 
-    {/* Screenshot */}
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black">
-      <img
-        src={selectedProject.manualImages[manualPage]}
-        alt={`${selectedProject.title} - Page ${manualPage + 1}`}
-        className="max-h-[600px] w-full object-contain"
-      />
-    </div>
-
-    {/* Navigation */}
-    <div className="mt-5 flex items-center justify-between gap-4">
-
-      {/* Previous */}
-      <button
-        onClick={() =>
-          setManualPage((current) =>
-            current === 0
-              ? selectedProject.manualImages.length - 1
-              : current - 1
-          )
-        }
-        className="rounded-full border border-white/10 bg-[#111624] px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-purple-500 hover:text-white"
-      >
-        ← Previous
-      </button>
-
-      {/* Page Counter */}
-      <span className="text-sm text-gray-400">
-        Page {manualPage + 1} of{" "}
-        {selectedProject.manualImages.length}
-      </span>
-
-      {/* Next */}
-      <button
-        onClick={() =>
-          setManualPage((current) =>
-            current === selectedProject.manualImages.length - 1
-              ? 0
-              : current + 1
-          )
-        }
-        className="rounded-full border border-white/10 bg-[#111624] px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-purple-500 hover:text-white"
-      >
-        Next →
-      </button>
-    </div>
-  </div>
-
-) : (
-  /* NORMAL IMAGE PROJECT */
-  <img
-    src={selectedProject.image}
-    alt={selectedProject.title}
-    className="w-full rounded-2xl object-cover"
-  />
-)}
-
-</div>
+                    {/* Next */}
+                    <button
+                      onClick={() =>
+                        setManualPage((current) =>
+                          current ===
+                          selectedProject.manualImages.length - 1
+                            ? 0
+                            : current + 1
+                        )
+                      }
+                      className="rounded-full border border-white/10 bg-[#111624] px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-purple-500 hover:text-white"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* NORMAL IMAGE PROJECT */
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full rounded-2xl object-cover"
+                />
+              )}
+            </div>
 
             {/* =================================================
                 PROJECT DETAILS
@@ -741,16 +744,17 @@ export default function Home() {
                     )
                   )}
                 </div>
+
                 {selectedProject.link && (
-               <a
-                href={selectedProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#a70000] px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#8f0000] hover:shadow-lg"
-                >
-                View Previous Job Projects
-               <span>↗</span>
-               </a>
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#a70000] px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#8f0000] hover:shadow-lg"
+                  >
+                    View Previous Job Projects
+                    <span>↗</span>
+                  </a>
                 )}
               </div>
 
@@ -762,6 +766,67 @@ export default function Home() {
                 >
                   Close Preview
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =====================================================
+          RESUME MODAL
+      ===================================================== */}
+
+      {showResume && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-md"
+          onClick={() => setShowResume(false)}
+        >
+          <div
+            className="relative flex h-[94vh] w-full max-w-[850px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111624] shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* Resume Header */}
+            <div className="flex shrink-0 items-center justify-between border-b border-white/10 bg-[#0b0f19] px-5 py-4">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Joan A. Riego-Salisipan
+                </p>
+
+                <p className="mt-1 text-xs text-gray-500">
+                  Resume
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {/* Download */}
+                <a
+                  href="/resume/Joan-Riego-Salisipan-Resume.pdf"
+                  download
+                  className="rounded-lg border border-white/10 px-4 py-2 text-xs font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-white/5 hover:text-white"
+                >
+                  Download
+                </a>
+
+                {/* Close */}
+                <button
+                  type="button"
+                  onClick={() => setShowResume(false)}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-white/10 hover:text-white"
+                  aria-label="Close resume"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* Resume Viewer */}
+            <div className="flex-1 overflow-auto bg-[#1a1d25] p-3 sm:p-5">
+              <div className="mx-auto h-full w-full max-w-[794px]">
+                <iframe
+                  src="/resume/Joan-Riego-Salisipan-Resume.pdf"
+                  title="Joan A. Riego-Salisipan Resume"
+                  className="h-full min-h-[1050px] w-full rounded-sm bg-white"
+                />
               </div>
             </div>
           </div>
