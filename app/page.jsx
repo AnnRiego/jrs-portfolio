@@ -510,13 +510,13 @@ export default function Home() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Have a project in mind?
+          I’m Open to New Opportunities
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl leading-7 text-gray-500">
-            Whether you need documentation, system QA support,
-            presentation materials, or a basic website, I'd be happy
-            to connect.
+          I’m currently open to career opportunities where I can apply my experience in 
+          system support, documentation, QA, and digital solutions while 
+          continuing to develop my skills in technology and design.
           </p>
 
           <a
