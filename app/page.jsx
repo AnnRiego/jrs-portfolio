@@ -66,7 +66,6 @@ const projects = [
   {
     title: "Previous Job Projects",
     category: "Previous Work",
-    icon: "📈",
     image: ["/projects/Projects & Certificates.png"],
     description:
     "A collection of selected projects, certificates, and professional outputs showcasing my experience in system documentation, digital design, office productivity, and technical support.",
