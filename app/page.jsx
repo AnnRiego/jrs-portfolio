@@ -119,8 +119,8 @@ export default function Home() {
 
   return (
     <>
-      {/* =====================================================
-          NAVBAR
+  {/* =====================================================
+        NAVBAR
       ===================================================== */}
 
       <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0b0f19]/90 backdrop-blur-lg">
@@ -693,9 +693,7 @@ export default function Home() {
       >
         Next →
       </button>
-
     </div>
-
   </div>
 
 ) : (
