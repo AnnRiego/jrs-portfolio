@@ -526,7 +526,7 @@ export default function Home() {
           </p>
 
           <a
-            href="mailto:annriego30@gmail.com"
+            href="mailto:joriego24@gmail.com"
             className="mt-8 inline-block rounded-full bg-purple-500 px-7 py-3 font-medium transition hover:bg-purple-400"
           >
             Get In Touch
