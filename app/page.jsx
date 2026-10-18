@@ -279,7 +279,7 @@ export default function Home() {
               {/* Photo */}
               <div className="relative h-[480px] w-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl">
                 <img
-                  src="/joan-profile.png"
+                  src="/joan-rs2.png"
                   alt="Joan A. Riego-Salisipan"
                   className="h-full w-full object-cover object-top"
                 />
