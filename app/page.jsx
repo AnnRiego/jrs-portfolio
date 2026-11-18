@@ -800,7 +800,7 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 {/* Download */}
                 <a
-                  href="/resume/Joan-Riego-Salisipan-Resume.pdf"
+                  href="/resume/jrs-resume2.pdf"
                   download
                   className="rounded-lg border border-white/10 px-4 py-2 text-xs font-medium text-gray-300 transition hover:border-purple-500/50 hover:bg-white/5 hover:text-white"
                 >
@@ -823,7 +823,7 @@ export default function Home() {
             <div className="flex-1 overflow-auto bg-[#1a1d25] p-3 sm:p-5">
               <div className="mx-auto h-full w-full max-w-[794px]">
                 <iframe
-                  src="/resume/Joan-Riego-Salisipan-Resume.pdf"
+                  src="/resume/jrs-resume2.pdf"
                   title="Joan A. Riego-Salisipan Resume"
                   className="h-full min-h-[1050px] w-full rounded-sm bg-white"
                 />
